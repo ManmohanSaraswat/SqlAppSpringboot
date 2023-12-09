@@ -1,11 +1,13 @@
 package com.sqlapp.frame;
 
+import java.awt.*;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.*;
+
 import com.sqlapp.dao.SqlData;
 
 public class NewJFrame extends JFrame {
@@ -21,43 +23,41 @@ public class NewJFrame extends JFrame {
         viewTableSchemaMainFrameButton.setEnabled(false);
     }
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
         rowEditDialogBox = new JDialog();
-        editCellLabel = new JLabel();
-        removeRowLabel = new JLabel();
-        editCellButton = new JButton();
-        removeRowButton = new JButton();
+        JLabel editCellLabel = new JLabel();
+        JLabel removeRowLabel = new JLabel();
+        JButton editCellButton = new JButton();
+        JButton removeRowButton = new JButton();
         dropDatabaseDialogBox = new JDialog();
-        jLabel1 = new JLabel();
-        jScrollPane2 = new JScrollPane();
+        JLabel jLabel1 = new JLabel();
+        JScrollPane jScrollPane2 = new JScrollPane();
         dropDatabaseTable = new JTable();
         manualQueryDialogBox = new JDialog();
-        jScrollPane4 = new JScrollPane();
+        JScrollPane jScrollPane4 = new JScrollPane();
         tableCreationTextArea = new JTextArea();
         jLabel2 = new JLabel();
-        executeQueryButton = new JButton();
-        selectDatabaseMainFrameLabel = new JLabel();
-        databaseComboBox = new JComboBox();
-        tableMainFrameJPanel = new JPanel();
-        mainFrameScrollPane = new JScrollPane();
+        JButton executeQueryButton = new JButton();
+        JLabel selectDatabaseMainFrameLabel = new JLabel();
+        databaseComboBox = new JComboBox<>();
+        JPanel tableMainFrameJPanel = new JPanel();
+        JScrollPane mainFrameScrollPane = new JScrollPane();
         tableMainFrame = new JTable();
         chooseDatabaseButton = new JButton();
-        selectTableJLabel = new JLabel();
-        tableNameComboBox = new JComboBox();
+        JLabel selectTableJLabel = new JLabel();
+        tableNameComboBox = new JComboBox<>();
         chooseTableButton = new JButton();
-        mainFrameSeparator = new JSeparator();
+        JSeparator mainFrameSeparator = new JSeparator();
         dropTableMainFrameButton = new JButton();
         createDatabaseMainFrameButton = new JButton();
         viewTableSchemaMainFrameButton = new JButton();
-        addTableMainFrameButton = new JButton();
-        closeAppMainFrameButton = new JButton();
-        helpMainFrameButton = new JButton();
-        searchFieldMainFrameButton = new JButton();
-        mainFrameJSeparator2 = new JSeparator();
-        dropDatabaseMainFrameButton = new JButton();
+        JButton addTableMainFrameButton = new JButton();
+        JButton closeAppMainFrameButton = new JButton();
+        JButton helpMainFrameButton = new JButton();
+        JButton searchFieldMainFrameButton = new JButton();
+        JSeparator mainFrameJSeparator2 = new JSeparator();
+        JButton dropDatabaseMainFrameButton = new JButton();
         addRowMainFrameButton = new JButton();
 
         rowEditDialogBox.setTitle("Editting ");
@@ -70,18 +70,10 @@ public class NewJFrame extends JFrame {
         removeRowLabel.setText("Do you Want to Remove this Cell:");
 
         editCellButton.setText("Click to Edit");
-        editCellButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                editCellButtonActionPerformed(evt);
-            }
-        });
+        editCellButton.addActionListener(evt -> editCellButtonActionPerformed());
 
         removeRowButton.setText("Click to Remove ");
-        removeRowButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                removeRowButtonActionPerformed(evt);
-            }
-        });
+        removeRowButton.addActionListener(evt -> removeRowButtonActionPerformed());
 
         GroupLayout rowEditDialogBoxLayout = new GroupLayout(rowEditDialogBox.getContentPane());
         rowEditDialogBox.getContentPane().setLayout(rowEditDialogBoxLayout);
@@ -117,11 +109,11 @@ public class NewJFrame extends JFrame {
         dropDatabaseDialogBox.setResizable(false);
         dropDatabaseDialogBox.addWindowListener(new WindowAdapter() {
             public void windowDeactivated(WindowEvent evt) {
-                dropDatabaseDialogBoxWindowDeactivated(evt);
+                dropDatabaseDialogBoxWindowDeactivated();
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", Font.BOLD, 18)); // NOI18N
         jLabel1.setText("Select Database");
 
         dropDatabaseTable.setModel(new DefaultTableModel(
@@ -136,7 +128,7 @@ public class NewJFrame extends JFrame {
         dropDatabaseTable.getTableHeader().setReorderingAllowed(false);
         dropDatabaseTable.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
-                dropDatabaseTableMouseClicked(evt);
+                dropDatabaseTableMouseClicked();
             }
         });
         jScrollPane2.setViewportView(dropDatabaseTable);
@@ -175,7 +167,7 @@ public class NewJFrame extends JFrame {
         manualQueryDialogBox.setResizable(false);
         manualQueryDialogBox.addWindowListener(new WindowAdapter() {
             public void windowDeactivated(WindowEvent evt) {
-                manualQueryDialogBoxWindowDeactivated(evt);
+                manualQueryDialogBoxWindowDeactivated();
             }
         });
 
@@ -183,16 +175,12 @@ public class NewJFrame extends JFrame {
         tableCreationTextArea.setRows(5);
         jScrollPane4.setViewportView(tableCreationTextArea);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(SwingConstants.CENTER);
         jLabel2.setText("Enter the Table Creation Query");
 
         executeQueryButton.setText("Click to Execute");
-        executeQueryButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                executeQueryButtonActionPerformed(evt);
-            }
-        });
+        executeQueryButton.addActionListener(evt -> executeQueryButtonActionPerformed());
 
         GroupLayout manualQueryDialogBoxLayout = new GroupLayout(manualQueryDialogBox.getContentPane());
         manualQueryDialogBox.getContentPane().setLayout(manualQueryDialogBoxLayout);
@@ -227,14 +215,10 @@ public class NewJFrame extends JFrame {
         setTitle("Advanced Sql Relater");
         setResizable(false);
 
-        selectDatabaseMainFrameLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        selectDatabaseMainFrameLabel.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         selectDatabaseMainFrameLabel.setText("Please Select the Database");
 
-        databaseComboBox.addItemListener(new ItemListener() {
-            public void itemStateChanged(ItemEvent evt) {
-                databaseComboBoxItemStateChanged(evt);
-            }
-        });
+        databaseComboBox.addItemListener(evt -> databaseComboBoxItemStateChanged());
 
         tableMainFrameJPanel.setEnabled(false);
 
@@ -244,7 +228,7 @@ public class NewJFrame extends JFrame {
         tableMainFrame.setFocusTraversalPolicyProvider(true);
         tableMainFrame.addMouseListener(new MouseAdapter() {
             public void mouseReleased(MouseEvent evt) {
-                tableMainFrameMouseReleased(evt);
+                tableMainFrameMouseReleased();
             }
         });
         mainFrameScrollPane.setViewportView(tableMainFrame);
@@ -266,104 +250,56 @@ public class NewJFrame extends JFrame {
                                 .addContainerGap())
         );
 
-        chooseDatabaseButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        chooseDatabaseButton.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         chooseDatabaseButton.setText("Click To Choose DB");
-        chooseDatabaseButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                chooseDatabaseButtonActionPerformed(evt);
-            }
-        });
+        chooseDatabaseButton.addActionListener(evt -> chooseDatabaseButtonActionPerformed());
 
-        selectTableJLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        selectTableJLabel.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         selectTableJLabel.setText("Please Select The Tables");
 
         tableNameComboBox.setEnabled(false);
-        tableNameComboBox.addItemListener(new ItemListener() {
-            public void itemStateChanged(ItemEvent evt) {
-                tableNameComboBoxItemStateChanged(evt);
-            }
-        });
+        tableNameComboBox.addItemListener(evt -> tableNameComboBoxItemStateChanged());
 
-        chooseTableButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        chooseTableButton.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         chooseTableButton.setText("Click To Choose Table");
         chooseTableButton.setEnabled(false);
-        chooseTableButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                chooseTableButtonActionPerformed(evt);
-            }
-        });
+        chooseTableButton.addActionListener(evt -> chooseTableButtonActionPerformed());
 
-        dropTableMainFrameButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        dropTableMainFrameButton.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         dropTableMainFrameButton.setText("Drop Selected Table");
-        dropTableMainFrameButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                dropTableMainFrameButtonActionPerformed(evt);
-            }
-        });
+        dropTableMainFrameButton.addActionListener(evt -> dropTableMainFrameButtonActionPerformed());
 
-        createDatabaseMainFrameButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        createDatabaseMainFrameButton.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         createDatabaseMainFrameButton.setText("Create Database");
-        createDatabaseMainFrameButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                createDatabaseMainFrameButtonActionPerformed(evt);
-            }
-        });
+        createDatabaseMainFrameButton.addActionListener(evt -> createDatabaseMainFrameButtonActionPerformed());
 
-        viewTableSchemaMainFrameButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        viewTableSchemaMainFrameButton.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         viewTableSchemaMainFrameButton.setText("View Table Schema");
-        viewTableSchemaMainFrameButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                viewTableSchemaMainFrameButtonActionPerformed(evt);
-            }
-        });
+        viewTableSchemaMainFrameButton.addActionListener(evt -> viewTableSchemaMainFrameButtonActionPerformed());
 
-        addTableMainFrameButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        addTableMainFrameButton.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         addTableMainFrameButton.setText("Add Table");
-        addTableMainFrameButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                addTableMainFrameButtonActionPerformed(evt);
-            }
-        });
+        addTableMainFrameButton.addActionListener(this::addTableMainFrameButtonActionPerformed);
 
-        closeAppMainFrameButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        closeAppMainFrameButton.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         closeAppMainFrameButton.setText("Close App");
-        closeAppMainFrameButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                closeAppMainFrameButtonActionPerformed(evt);
-            }
-        });
+        closeAppMainFrameButton.addActionListener(this::closeAppMainFrameButtonActionPerformed);
 
-        helpMainFrameButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        helpMainFrameButton.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         helpMainFrameButton.setText("Help");
-        helpMainFrameButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                helpMainFrameButtonActionPerformed(evt);
-            }
-        });
+        helpMainFrameButton.addActionListener(evt -> helpMainFrameButtonActionPerformed());
 
-        searchFieldMainFrameButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        searchFieldMainFrameButton.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         searchFieldMainFrameButton.setText("Search Field");
-        searchFieldMainFrameButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                searchFieldMainFrameButtonActionPerformed(evt);
-            }
-        });
+        searchFieldMainFrameButton.addActionListener(evt -> searchFieldMainFrameButtonActionPerformed());
 
-        dropDatabaseMainFrameButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        dropDatabaseMainFrameButton.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         dropDatabaseMainFrameButton.setText("Drop Db");
-        dropDatabaseMainFrameButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                dropDatabaseMainFrameButtonActionPerformed(evt);
-            }
-        });
+        dropDatabaseMainFrameButton.addActionListener(evt -> dropDatabaseMainFrameButtonActionPerformed());
 
-        addRowMainFrameButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        addRowMainFrameButton.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         addRowMainFrameButton.setText("Add Row");
-        addRowMainFrameButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                addRowMainFrameButtonActionPerformed(evt);
-            }
-        });
+        addRowMainFrameButton.addActionListener(evt -> addRowMainFrameButtonActionPerformed());
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -452,7 +388,7 @@ public class NewJFrame extends JFrame {
         pack();
     }// </editor-fold>
 
-    private void chooseDatabaseButtonActionPerformed(ActionEvent evt) {
+    private void chooseDatabaseButtonActionPerformed() {
         dropTableMainFrameButton.setEnabled(false);
         addRowMainFrameButton.setEnabled(false);
         tableNameComboBox.setEnabled(true);
@@ -465,7 +401,7 @@ public class NewJFrame extends JFrame {
         chooseTableButton.setEnabled(tableNameComboBox.getItemCount() != 0);
     }
 
-    private void chooseTableButtonActionPerformed(ActionEvent evt) {
+    private void chooseTableButtonActionPerformed() {
         viewTableSchemaMainFrameButton.setEnabled(true);
         dropTableMainFrameButton.setEnabled(true);
         createDatabaseMainFrameButton.setEnabled(true);
@@ -481,7 +417,7 @@ public class NewJFrame extends JFrame {
         rows.forEach(row -> swingTable.addRow(new Vector<>(row)));
     }
 
-    private void databaseComboBoxItemStateChanged(ItemEvent evt) {
+    private void databaseComboBoxItemStateChanged() {
         tableMainFrame.setModel(new DefaultTableModel(new Object[][]{}, new String[]{}));
         tableNameComboBox.setEnabled(false);
         chooseTableButton.setEnabled(false);
@@ -490,7 +426,7 @@ public class NewJFrame extends JFrame {
         addRowMainFrameButton.setEnabled(false);
     }
 
-    private void tableNameComboBoxItemStateChanged(ItemEvent evt) {
+    private void tableNameComboBoxItemStateChanged() {
         tableMainFrame.setModel(new DefaultTableModel(new Object[][]{}, new String[]{}));
         databaseComboBox.setEnabled(true);
         chooseDatabaseButton.setEnabled(false);
@@ -499,7 +435,7 @@ public class NewJFrame extends JFrame {
         viewTableSchemaMainFrameButton.setEnabled(false);
     }
 
-    private void dropTableMainFrameButtonActionPerformed(ActionEvent evt) {
+    private void dropTableMainFrameButtonActionPerformed() {
         addRowMainFrameButton.setEnabled(false);
         tableMainFrame.setModel(new DefaultTableModel(new Object[][]{}, new String[]{}));
         String database = (String) databaseComboBox.getSelectedItem();
@@ -517,7 +453,7 @@ public class NewJFrame extends JFrame {
         viewTableSchemaMainFrameButton.setEnabled(false);
     }
 
-    private void createDatabaseMainFrameButtonActionPerformed(ActionEvent evt) {
+    private void createDatabaseMainFrameButtonActionPerformed() {
         addRowMainFrameButton.setEnabled(false);
         String databaseName = JOptionPane.showInputDialog("Please enter database name");
         if (databaseName == null) return;
@@ -533,7 +469,7 @@ public class NewJFrame extends JFrame {
         }
     }
 
-    private void viewTableSchemaMainFrameButtonActionPerformed(ActionEvent evt) {
+    private void viewTableSchemaMainFrameButtonActionPerformed() {
         tableMainFrame.setModel(new DefaultTableModel(new Object[][]{}, new String[]{}));
         String database = (String) databaseComboBox.getSelectedItem();
         String tableName = (String) tableNameComboBox.getSelectedItem();
@@ -549,7 +485,7 @@ public class NewJFrame extends JFrame {
         }
     }
 
-    private void tableMainFrameMouseReleased(MouseEvent evt) {
+    private void tableMainFrameMouseReleased() {
         rowEditDialogBox.setVisible(tableMainFrame.getRowCount() > 0);
     }
 
@@ -563,7 +499,7 @@ public class NewJFrame extends JFrame {
         System.exit(0);
     }
 
-    private void editCellButtonActionPerformed(ActionEvent evt) {
+    private void editCellButtonActionPerformed() {
         int choice = JOptionPane.showConfirmDialog(null, "Are you sure to edit the data...");
         if (choice == JOptionPane.YES_OPTION) {
             String input = JOptionPane.showInputDialog("Please Enter the new Data....");
@@ -590,7 +526,7 @@ public class NewJFrame extends JFrame {
         rowEditDialogBox.setVisible(false);
     }
 
-    private void removeRowButtonActionPerformed(ActionEvent evt) {
+    private void removeRowButtonActionPerformed() {
         String database = (String) databaseComboBox.getSelectedItem();
         String tableName = (String) tableNameComboBox.getSelectedItem();
         int selectedRow = tableMainFrame.getSelectedRow();
@@ -612,15 +548,15 @@ public class NewJFrame extends JFrame {
         rowEditDialogBox.setVisible(false);
     }
 
-    private void searchFieldMainFrameButtonActionPerformed(ActionEvent evt) {
+    private void searchFieldMainFrameButtonActionPerformed() {
         JOptionPane.showMessageDialog(null, "Feature not Supported yet");
     }
 
-    private void helpMainFrameButtonActionPerformed(ActionEvent evt) {
+    private void helpMainFrameButtonActionPerformed() {
         JOptionPane.showMessageDialog(null, "Feature not Supported yet");
     }
 
-    private void dropDatabaseMainFrameButtonActionPerformed(ActionEvent evt) {
+    private void dropDatabaseMainFrameButtonActionPerformed() {
         addRowMainFrameButton.setEnabled(false);
         DefaultTableModel dm15 = (DefaultTableModel) dropDatabaseTable.getModel();
         int i = dropDatabaseTable.getRowCount();
@@ -638,7 +574,7 @@ public class NewJFrame extends JFrame {
         addRowMainFrameButton.setEnabled(true);
     }
 
-    private void dropDatabaseTableMouseClicked(MouseEvent evt) {
+    private void dropDatabaseTableMouseClicked() {
         int i = dropDatabaseTable.getSelectedRow();
         int k = dropDatabaseTable.getSelectedColumn();
         String databaseName = (String) dropDatabaseTable.getValueAt(i, k);
@@ -656,10 +592,10 @@ public class NewJFrame extends JFrame {
 
     }
 
-    private void executeQueryButtonActionPerformed(ActionEvent evt) {
+    private void executeQueryButtonActionPerformed() {
         String query = tableCreationTextArea.getText();
         String database = (String) databaseComboBox.getSelectedItem();
-        String message = "";
+        String message;
         if (manualQueryDialogBox.getTitle().equals("Insert Row Query"))
             message = SqlData.insertRow(query, database);
         else
@@ -672,62 +608,39 @@ public class NewJFrame extends JFrame {
         }
     }
 
-    private void manualQueryDialogBoxWindowDeactivated(WindowEvent evt) {
+    private void manualQueryDialogBoxWindowDeactivated() {
         manualQueryDialogBox.toFront();
     }
 
-    private void dropDatabaseDialogBoxWindowDeactivated(WindowEvent evt) {
+    private void dropDatabaseDialogBoxWindowDeactivated() {
         dropDatabaseDialogBox.toFront();
     }
 
-    private void addRowMainFrameButtonActionPerformed(ActionEvent evt) {
+    private void addRowMainFrameButtonActionPerformed() {
         manualQueryDialogBox.setTitle("Insert Row Query");
         jLabel2.setText("Please type insert row query");
         manualQueryDialogBox.setVisible(true);
     }
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewJFrame().setVisible(true);
-            }
-        });
+    public static void main(String[] args) {
+        java.awt.EventQueue.invokeLater(() -> new NewJFrame().setVisible(true));
     }
 
     // Variables declaration - do not modify
     private JButton addRowMainFrameButton;
-    private JButton addTableMainFrameButton;
     private JButton chooseDatabaseButton;
     private JButton chooseTableButton;
-    private JButton closeAppMainFrameButton;
     private JButton createDatabaseMainFrameButton;
-    private JComboBox databaseComboBox;
+    private JComboBox<String> databaseComboBox;
     private JDialog dropDatabaseDialogBox;
-    private JButton dropDatabaseMainFrameButton;
     private JButton dropTableMainFrameButton;
-    private JButton helpMainFrameButton;
-    private JButton editCellButton;
-    private JButton removeRowButton;
-    private JButton executeQueryButton;
-    private JLabel jLabel1;
     private JLabel jLabel2;
-    private JLabel editCellLabel;
-    private JLabel removeRowLabel;
-    private JScrollPane jScrollPane2;
-    private JScrollPane jScrollPane4;
     private JTable dropDatabaseTable;
-    private JSeparator mainFrameJSeparator2;
-    private JScrollPane mainFrameScrollPane;
-    private JSeparator mainFrameSeparator;
     private JDialog manualQueryDialogBox;
     private JDialog rowEditDialogBox;
-    private JButton searchFieldMainFrameButton;
-    private JLabel selectDatabaseMainFrameLabel;
-    private JLabel selectTableJLabel;
     private JTextArea tableCreationTextArea;
     private JTable tableMainFrame;
-    private JPanel tableMainFrameJPanel;
-    private JComboBox tableNameComboBox;
+    private JComboBox<String> tableNameComboBox;
     private JButton viewTableSchemaMainFrameButton;
     // End of variables declaration
 
