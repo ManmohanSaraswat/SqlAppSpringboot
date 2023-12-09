@@ -10,7 +10,7 @@ public class SqlappApplication {
 	public static void main(String[] args) {
 		System.setProperty("java.awt.headless", "false");
 		SpringApplication.run(SqlappApplication.class, args);
-		NewJFrame.main();
+		NewJFrame.main(args);
 	}
 
 }
