@@ -24,7 +24,6 @@ public class SqlData {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        log.info(databases.toString());
         return databases;
     }
 
@@ -44,7 +43,6 @@ public class SqlData {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        log.info(tables.toString());
         return tables;
     }
 
@@ -62,7 +60,6 @@ public class SqlData {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        log.info(columns.toString());
         return columns;
     }
 
@@ -82,7 +79,6 @@ public class SqlData {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        log.info(rows.toString());
         return rows;
     }
 
@@ -96,7 +92,6 @@ public class SqlData {
         } catch (SQLException e) {
             return e.getLocalizedMessage();
         }
-        log.info(tableName + " in Database: " + database + " dropped successfully");
         return "";
     }
 
@@ -123,7 +118,6 @@ public class SqlData {
         } catch (SQLException e) {
             return e.getLocalizedMessage();
         }
-        log.info("Database with name " + database + " deleted successfully");
         return "Database with name " + database + " deleted successfully";
     }
 
@@ -146,7 +140,6 @@ public class SqlData {
         } catch (SQLException e) {
             return e.getLocalizedMessage();
         }
-        log.info("Column value updated successfully");
         return "Column value updated successfully";
     }
 
@@ -165,7 +158,6 @@ public class SqlData {
         } catch (SQLException e) {
             return e.getLocalizedMessage();
         }
-        log.info("Row deleted successfully");
         return "Row deleted successfully";
     }
 
@@ -178,7 +170,6 @@ public class SqlData {
         } catch (SQLException e) {
             return e.getLocalizedMessage();
         }
-        log.info("Table created successfully");
         return "Table created successfully";
     }
 
@@ -191,7 +182,6 @@ public class SqlData {
         } catch (SQLException e) {
             return e.getLocalizedMessage();
         }
-        log.info("Row inserted successfully");
         return "Row inserted successfully";
     }
 
