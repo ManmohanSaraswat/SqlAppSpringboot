@@ -7,6 +7,7 @@ import java.util.Vector;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.*;
+import java.util.stream.IntStream;
 
 import com.sqlapp.dao.SqlData;
 
@@ -394,9 +395,7 @@ public class NewJFrame extends JFrame {
         tableNameComboBox.setEnabled(true);
         tableNameComboBox.removeAllItems();
         String database = (String) databaseComboBox.getSelectedItem();
-        List<String> tables = SqlData.getTablesInADatabase(database);
-        for (String table : tables)
-            tableNameComboBox.addItem(table);
+        SqlData.getTablesInADatabase(database).forEach(tableNameComboBox::addItem);
         tableMainFrame.setModel(new DefaultTableModel(new Object[][]{}, new String[]{}));
         chooseTableButton.setEnabled(tableNameComboBox.getItemCount() != 0);
     }
@@ -463,10 +462,7 @@ public class NewJFrame extends JFrame {
         dropTableMainFrameButton.setEnabled(false);
         tableNameComboBox.setEnabled(false);
         chooseTableButton.setEnabled(false);
-        List<String> databases = SqlData.getDatabases();
-        for (String database : databases) {
-            databaseComboBox.addItem(database);
-        }
+        SqlData.getDatabases().forEach(databaseComboBox::addItem);
     }
 
     private void viewTableSchemaMainFrameButtonActionPerformed() {
@@ -558,38 +554,27 @@ public class NewJFrame extends JFrame {
 
     private void dropDatabaseMainFrameButtonActionPerformed() {
         addRowMainFrameButton.setEnabled(false);
-        DefaultTableModel dm15 = (DefaultTableModel) dropDatabaseTable.getModel();
-        int i = dropDatabaseTable.getRowCount();
-        while (i > 0) {
-            i--;
-            dm15.removeRow(i);
-        }
+        DefaultTableModel tableModel = (DefaultTableModel) dropDatabaseTable.getModel();
+        IntStream.rangeClosed(1, dropDatabaseTable.getRowCount()).forEach(tableModel::removeRow);
         dropDatabaseDialogBox.setVisible(true);
-        List<String> databases = SqlData.getDatabases();
-        for (String database : databases) {
-            dm15.addRow(new Object[]{database});
-        }
+        SqlData.getDatabases().forEach(database -> tableModel.addRow(new Object[]{database}));
         addRowMainFrameButton.setEnabled(false);
         JOptionPane.showMessageDialog(null, "Please Click On That Database  Which \n you Wants to Delete.......");
         addRowMainFrameButton.setEnabled(true);
     }
 
     private void dropDatabaseTableMouseClicked() {
-        int i = dropDatabaseTable.getSelectedRow();
-        int k = dropDatabaseTable.getSelectedColumn();
-        String databaseName = (String) dropDatabaseTable.getValueAt(i, k);
-        int l = JOptionPane.showConfirmDialog(null, "Are you damm Sure to delete this Database ");
-        if (l == JOptionPane.YES_OPTION) {
+        int selectedRow = dropDatabaseTable.getSelectedRow();
+        int selectedColumn = dropDatabaseTable.getSelectedColumn();
+        String databaseName = (String) dropDatabaseTable.getValueAt(selectedRow, selectedColumn);
+        int choice = JOptionPane.showConfirmDialog(null, "Are you damm Sure to delete this Database ");
+        if (choice == JOptionPane.YES_OPTION) {
             String message = SqlData.dropDatabase(databaseName);
             JOptionPane.showMessageDialog(null, message);
             dropDatabaseDialogBox.setVisible(false);
             databaseComboBox.removeAllItems();
-            List<String> databases = SqlData.getDatabases();
-            for (String database : databases) {
-                databaseComboBox.addItem(database);
-            }
+            SqlData.getDatabases().forEach(databaseComboBox::addItem);
         }
-
     }
 
     private void executeQueryButtonActionPerformed() {
