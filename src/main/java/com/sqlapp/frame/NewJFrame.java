@@ -16,10 +16,7 @@ public class NewJFrame extends JFrame {
     public NewJFrame() {
         initComponents();
         addRowMainFrameButton.setEnabled(false);
-        List<String> databases = SqlData.getDatabases();
-        for (String database : databases) {
-            databaseComboBox.addItem(database);
-        }
+        SqlData.getDatabases().forEach(databaseComboBox::addItem);
         dropTableMainFrameButton.setEnabled(false);
         viewTableSchemaMainFrameButton.setEnabled(false);
     }
